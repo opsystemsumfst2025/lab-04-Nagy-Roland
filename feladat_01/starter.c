@@ -24,7 +24,7 @@ void* deposit_money(void* arg) {
 
 int main() {
     // TODO: Hozz letre egy pthread_t tombot NUM_THREADS meretu elemmel
-    pthread_t threadek [NUM_THREADS];
+    pthread_t threads [NUM_THREADS];
     printf("Kezdeti egyenleg: %d dollar\n", balance);
     printf("Inditas: %d penztaros, mindegyik %d dollar befizetesevel...\n", 
            NUM_THREADS, INCREMENTS_PER_THREAD);
