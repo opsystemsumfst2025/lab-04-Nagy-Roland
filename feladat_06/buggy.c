@@ -7,7 +7,7 @@
 void null_pointer_bug() {
     printf("\n--- 1. Hiba: NULL pointer dereference ---\n");
     
-    int* ptr = NULL;
+    int* ptr;
     
     // HIBA: NULL pointerre probalsz irni
     *ptr = 42;
@@ -19,9 +19,9 @@ void array_overflow_bug() {
     printf("\n--- 2. Hiba: Tomb tulinexeles ---\n");
     
     int array[10];
-    
+    int n = (int)(sizeof(array) / sizeof(array[0]));
     // HIBA: A tomb 0-9 indexeket tartalmazza, nem 0-15!
-    for (int i = 0; i <= 15; i++) {
+    for (int i = 0; i < n; i++) {
         array[i] = i * 10;
         printf("array[%d] = %d\n", i, array[i]);
     }
@@ -49,15 +49,16 @@ void use_after_free_bug() {
     }
     printf("\n");
     
-    // Felszabaditjuk a memoriat
-    free(data);
-    printf("Memoria felszabaditva.\n");
+    
     
     // HIBA: Mar felszabaditott memoriat hasznalunk!
     printf("Megprobaljuk hasznalni a felszabaditott memoriat...\n");
     for (int i = 0; i < 5; i++) {
         data[i] = i + 200;  // Use after free!
     }
+    // Felszabaditjuk a memoriat
+    free(data);
+    printf("Memoria felszabaditva.\n");
     
     printf("Ha ide eljutott, akkor nem volt segfault (szerencses vagy)\n");
 }
