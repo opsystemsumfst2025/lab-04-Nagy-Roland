@@ -13,7 +13,7 @@ int* array = NULL;
 int found_at = -1;
 
 // TODO: Deklaralj egy mutexet a found_at vedelmere
-found_at mutex;
+pthread_mutex_t found_mutex;
 // Struktura a szalak parametereinek atadasahoz
 typedef struct {
     int thread_id;
