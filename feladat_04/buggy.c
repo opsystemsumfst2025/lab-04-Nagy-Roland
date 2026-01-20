@@ -8,6 +8,13 @@ typedef struct {
     int age;
 } Person;
 
+void free_person(Person* p){
+    free(p);
+}
+
+void free_greeting(char* greeting){
+    free(greeting);
+}
 // HIBA: Ez a fuggveny memoriat foglal, de sehol nem szabaditjuk fel
 Person* create_person(const char* name, int age) {
     Person* p = (Person*)malloc(sizeof(Person));
@@ -63,7 +70,8 @@ int main() {
     // HIBA: Itt kellene felszabaditani a memoriait!
     // De nem tesszuk...
     // A memoria "elveszett" - a program vegere sem szabadul fel
-    
+    free_person(john);
+    free_greeting(greeting);
     printf("\nProgram vege. (De a memoria meg mindig foglalt!)\n");
     printf("Futtasd Valgrind-dal: make valgrind_04\n");
     
