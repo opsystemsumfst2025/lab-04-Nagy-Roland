@@ -9,6 +9,7 @@ typedef struct {
 } Person;
 
 void free_person(Person* p){
+    free(p->name);
     free(p);
 }
 
