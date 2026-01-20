@@ -4,10 +4,10 @@
 int main() {
     // TODO: Hozz letre egy dinamikus int tombot 2 elem merettel
     // int* data = malloc(...);
-    int* data = malloc(capacity * sizeof(int));
+    
     int capacity = 2;  // Jelenlegi kapacitas
     int size = 0;      // Jelenleg hany elem van benne
-    
+    int* data = malloc(capacity * sizeof(int));
     // TODO: Ellenorizd, hogy a malloc sikeres volt-e
     if(data !=NULL){
         cout << "Siker";
