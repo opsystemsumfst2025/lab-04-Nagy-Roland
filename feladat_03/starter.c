@@ -46,8 +46,8 @@ void* search_thread(void* arg) {
             if (already_found) {
                 break;
             }
-        
-        if (data->array[i] == -1) {
+         }
+        if (array[i] == -1) {
             pthread_mutex_lock(&found_mutex);
             
             if (found_at == -1) {
@@ -100,7 +100,7 @@ int main() {
     // thread_data[i].start_index = i * chunk_size;
     // thread_data[i].end_index = (i == NUM_THREADS - 1) ? ARRAY_SIZE : (i + 1) * chunk_size;
 
-    for(int i = 0,i<NUM_THREADS;i++){
+    for(int i = 0;i<NUM_THREADS;i++){
         thread_data[i].thread_id = i;
         thread_data[i].start_index = i * chunk_size;
         thread_data[i].end_index = (i == NUM_THREADS - 1) ? ARRAY_SIZE : (i + 1) * chunk_size;
