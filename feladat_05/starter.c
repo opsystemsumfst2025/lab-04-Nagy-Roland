@@ -4,12 +4,14 @@
 int main() {
     // TODO: Hozz letre egy dinamikus int tombot 2 elem merettel
     // int* data = malloc(...);
-    
+    int* data = malloc(capacity * sizeof(int));
     int capacity = 2;  // Jelenlegi kapacitas
     int size = 0;      // Jelenleg hany elem van benne
     
     // TODO: Ellenorizd, hogy a malloc sikeres volt-e
-    
+    if(data !=NULL){
+        cout << "Siker";
+    }
     printf("Dinamikus tomb (kezdeti kapacitas: %d)\n", capacity);
     printf("Irj be szamokat (0 = vege):\n");
     
@@ -31,19 +33,34 @@ int main() {
         // if (temp == NULL) { ... }
         // data = temp;
         // capacity = new_capacity;
+        if(size== capacity){
+            int* temp = realloc(data,new_capacity * sizeof(int));
+            if (temp == NULL){
+                cout << "Hiba";
+            }else{
+                data = temp;
+                capacity = newcapacity;
+            }
+        }
+
+
         
         // TODO: Add hozza a szamot a tombhoz
         // data[size] = number;
         // size++;
+        data[size] = number;
+        size++;
     }
     
     // Kiirjuk az eredmenyt
     printf("\nBeirt szamok (%d db): ", size);
     // TODO: Irj egy ciklust, ami kiirja az osszes szamot
-    
+    for (int i = 0; i < size; i++) {
+        printf("%d ", data[i]);
+    }
     printf("\n");
     
     // TODO: Szabaditsd fel a memoriat!
-    
+    free(data);
     return 0;
 }
