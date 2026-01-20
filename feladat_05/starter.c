@@ -36,7 +36,7 @@ int main() {
         
         if(size== capacity){
             
-            int new_capacity = capcity * 2;
+            int new_capacity = capacity * 2;
             int* temp = realloc(data,new_capacity * sizeof(int));
             if (temp == NULL){
                 printf("Hiba\n");
