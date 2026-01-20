@@ -39,22 +39,22 @@ void* search_thread(void* arg) {
     //       hanem csak minden 10000. elemnel
     for(int i = data->start_index;i< data->end_index;i++){
          if (((i - data->start_index) % 10000) == 0) {
-            pthread_mutex_lock(data->mutex);
+            pthread_mutex_lock(&found_mutex);
             int already_found = (*data->found_at != -1);
-            pthread_mutex_unlock(data->mutex);
+            pthread_mutex_unlock(&found_mutex);
 
             if (already_found) {
                 break;
             }
         }
         if (data->array[i] == -1) {
-            pthread_mutex_lock(data->mutex);
+            pthread_mutex_lock(&found_mutex);
             
             if (*data->found_at == -1) {
                 *data->found_at = i;
             }
 
-            pthread_mutex_unlock(data->mutex);
+            pthread_mutex_unlock(&found_mutex);
             break;
         }
     }
