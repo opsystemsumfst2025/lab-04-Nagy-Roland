@@ -10,7 +10,7 @@ int main() {
     int* data = malloc(capacity * sizeof(int));
     // TODO: Ellenorizd, hogy a malloc sikeres volt-e
     if(data !=NULL){
-        cout << "Siker";
+        printf("Siker\n");
     }
     printf("Dinamikus tomb (kezdeti kapacitas: %d)\n", capacity);
     printf("Irj be szamokat (0 = vege):\n");
@@ -33,13 +33,14 @@ int main() {
         // if (temp == NULL) { ... }
         // data = temp;
         // capacity = new_capacity;
+        int new_capacity;
         if(size== capacity){
             int* temp = realloc(data,new_capacity * sizeof(int));
             if (temp == NULL){
-                cout << "Hiba";
+                printf("Hiba\n")
             }else{
                 data = temp;
-                capacity = newcapacity;
+                capacity = new_capacity;
             }
         }
 
