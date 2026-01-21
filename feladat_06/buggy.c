@@ -72,13 +72,13 @@ int main() {
     // Kommenteld ki az egyiket, hogy kulon-kulon teszteld a hibakat
     
     // 1. hiba: NULL pointer
-    // null_pointer_bug();
+     null_pointer_bug();
     
     // 2. hiba: Tomb tulinexeles
     array_overflow_bug();
     
     // 3. hiba: Use after free
-    // use_after_free_bug();
+     use_after_free_bug();
     
     printf("\nProgram vege.\n");
     return 0;
